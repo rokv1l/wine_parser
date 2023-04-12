@@ -75,7 +75,7 @@ def main():
     options = Options()
     options.page_load_strategy = 'eager'
     options.headless = True
-    with webdriver.Firefox(executable_path='./geckodriver', options=options) as driver:
+    with webdriver.Firefox(executable_path='./chromedriver', options=options) as driver:
         data = [
             ('https://irecommend.ru/catalog/reviews/938-332121', 98),
             ('https://irecommend.ru/catalog/reviews/938-437691', 59),
