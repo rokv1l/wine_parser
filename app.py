@@ -74,6 +74,7 @@ def download_images(path, main_image_link, comment_images, p_link):
 def main():
     options = Options()
     options.page_load_strategy = 'eager'
+    options.headless = True
     with webdriver.Firefox(executable_path='./geckodriver', options=options) as driver:
         data = [
             ('https://irecommend.ru/catalog/reviews/938-332121', 98),
