@@ -73,9 +73,10 @@ def download_images(path, main_image_link, comment_images, p_link):
 
 def main():
     capabilities = {
-        "browserName": "chrome",
+        "browserName": "firefox",
+        "browserVersion": "57.0",
         "selenoid:options": {
-            "enableVNC": True
+            "enableVideo": False
         }
     }
     with webdriver.Remote(
