@@ -73,9 +73,6 @@ def download_images(path, main_image_link, comment_images, p_link):
 
 def main():
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
     options.page_load_strategy = 'eager'
     options.headless = True
     with webdriver.Chrome('./chromedriver', options=options) as driver:
