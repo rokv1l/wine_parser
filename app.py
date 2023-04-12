@@ -72,10 +72,15 @@ def download_images(path, main_image_link, comment_images, p_link):
 
 
 def main():
-    options = webdriver.ChromeOptions()
-    options.page_load_strategy = 'eager'
-    options.headless = True
-    with webdriver.Chrome('./chromedriver', options=options) as driver:
+    capabilities = {
+        "browserName": "chrome",
+        "selenoid:options": {
+            "enableVNC": True
+        }
+    }
+    with webdriver.Remote(
+    command_executor="http://90.156.210.231:8080/#/",
+    desired_capabilities=capabilities) as driver:
         data = [
             ('https://irecommend.ru/catalog/reviews/938-332121', 98),
             ('https://irecommend.ru/catalog/reviews/938-437691', 59),
