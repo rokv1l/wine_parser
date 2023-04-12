@@ -72,10 +72,13 @@ def download_images(path, main_image_link, comment_images, p_link):
 
 
 def main():
-    options = Options()
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
     options.page_load_strategy = 'eager'
     options.headless = True
-    with webdriver.Chrome(executable_path='./chromedriver', options=options) as driver:
+    with webdriver.Chrome('./chromedriver', options=options) as driver:
         data = [
             ('https://irecommend.ru/catalog/reviews/938-332121', 98),
             ('https://irecommend.ru/catalog/reviews/938-437691', 59),
