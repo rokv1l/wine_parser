@@ -42,6 +42,7 @@ def get_main_image(driver, url):
     driver.get(url)
     element = driver.find_element(by=By.CSS_SELECTOR, value='div.mainpic span a img')
     link = element.get_attribute('data-original')
+    link = 'https://cdn-irec.r-99.com/sites/default/files/product-images' + link.split('product-images')[-1]
     return link
 
 
@@ -52,6 +53,7 @@ def get_comment_images(driver, url):
     links = []
     for element in elements:
         link = element.get_attribute('data-original')
+        link = 'https://cdn-irec.r-99.com/sites/default/files/imagecache/copyright1/user-images' + link.split('user-images')[-1]
         links.append(link)
 
     return links
@@ -69,7 +71,6 @@ def download_images(path, main_image_link, comment_images, p_link):
         response = requests.get(link)
         with open(f'{path}/comment_image_{i}.jpg', 'wb') as f:
             f.write(response.content)
-
 
 def main():
     capabilities = {
